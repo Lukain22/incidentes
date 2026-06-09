@@ -245,7 +245,7 @@ function jsonp(params) {
 }
 
 // ── ROWS ──────────────────────────────────────────────────────
-function esc(s) { return (s||"").replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+function esc(s) { return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
 
 function clearNoRows(id) {
   const nr = document.querySelector("#"+id+" .no-rows");
