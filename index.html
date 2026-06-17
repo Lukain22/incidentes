@@ -12,87 +12,61 @@
     --border:#c8d6df; --row-alt:#f4f9fd; --row-hover:#eaf4fb; --text:#1a252f; --bg:#f0f4f8; --white:#fff;
   }
   body { font-family:'Segoe UI',system-ui,sans-serif; font-size:12px; background:var(--bg); color:var(--text); min-height:100vh; }
-
-  .toolbar {
-    display:flex; align-items:center; justify-content:space-between;
-    padding:9px 16px; background:var(--white); border-bottom:1px solid var(--border);
-    position:sticky; top:0; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.08);
-    gap:10px; flex-wrap:wrap;
-  }
+  .toolbar { display:flex; align-items:center; justify-content:space-between; padding:9px 16px; background:var(--white); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:100; box-shadow:0 1px 4px rgba(0,0,0,.08); gap:10px; flex-wrap:wrap; }
   .toolbar-title { font-size:14px; font-weight:600; color:var(--p1-header); }
   .toolbar-right { display:flex; align-items:center; gap:10px; }
-
-  .status-pill {
-    display:flex; align-items:center; gap:6px;
-    background:#f4f6f7; border:1px solid var(--border);
-    border-radius:20px; padding:3px 10px; font-size:10px; color:#555;
-  }
+  .status-pill { display:flex; align-items:center; gap:6px; background:#f4f6f7; border:1px solid var(--border); border-radius:20px; padding:3px 10px; font-size:10px; color:#555; }
   .dot { width:7px; height:7px; border-radius:50%; background:#bdc3c7; transition:background .3s; flex-shrink:0; }
   .dot.idle   { background:#27ae60; }
   .dot.saving { background:#f39c12; animation:blink .7s infinite; }
   .dot.error  { background:#e74c3c; }
   @keyframes blink { 0%,100%{opacity:1}50%{opacity:.3} }
-
   .btn { font-family:inherit; font-size:11px; font-weight:500; padding:5px 12px; border-radius:5px; border:1px solid transparent; cursor:pointer; transition:opacity .15s; white-space:nowrap; }
-  .btn:hover { opacity:.82; }
-  .btn:active { transform:scale(.97); }
+  .btn:hover { opacity:.82; } .btn:active { transform:scale(.97); }
   .btn-outline { background:transparent; border-color:var(--border); color:var(--text); }
   .btn-primary { background:var(--p1-header); color:#fff; }
   .btn-print   { background:#5d6d7e; color:#fff; }
-
   .add-btn { font-size:10px; padding:3px 9px; border-radius:4px; border:1px solid var(--border); background:var(--white); cursor:pointer; margin:4px 6px; }
   .add-btn:hover { background:var(--row-alt); }
   .del-btn { background:none; border:none; color:#c0392b; cursor:pointer; font-size:15px; line-height:1; padding:0 4px; }
   .del-btn:hover { color:#922b21; }
-
   .page { padding:14px 16px; max-width:1400px; margin:0 auto; }
   .block-title { text-align:center; color:#fff; font-size:12px; font-weight:600; padding:6px; letter-spacing:.6px; border-radius:6px 6px 0 0; }
-  .p1-color { background:var(--p1-header); }
-  .p2-color { background:var(--p2-header); }
+  .p1-color { background:var(--p1-header); } .p2-color { background:var(--p2-header); }
   .section-wrap { border:1px solid var(--border); border-top:none; border-radius:0 0 6px 6px; overflow:hidden; margin-bottom:4px; }
   .section-label { text-align:center; font-size:10px; font-weight:600; padding:3px; letter-spacing:.5px; }
-  .lbl-p1-pend { background:var(--p1-section); color:#154360; }
-  .lbl-p1-res  { background:var(--p1-resolved);color:#154360; }
-  .lbl-p2-pend { background:var(--p2-section); color:#1e8449; }
-  .lbl-p2-res  { background:var(--p2-resolved);color:#1e8449; }
+  .lbl-p1-pend { background:var(--p1-section); color:#154360; } .lbl-p1-res { background:var(--p1-resolved); color:#154360; }
+  .lbl-p2-pend { background:var(--p2-section); color:#1e8449; } .lbl-p2-res { background:var(--p2-resolved); color:#1e8449; }
   .divider { height:14px; }
-
   .tbl-wrap { overflow-x:auto; }
   table { width:100%; border-collapse:collapse; }
   th { color:#fff; font-size:10px; font-weight:500; padding:5px 6px; text-align:left; white-space:nowrap; }
-  .p1-th { background:var(--p1-th); }
-  .p2-th { background:var(--p2-th); }
+  .p1-th { background:var(--p1-th); } .p2-th { background:var(--p2-th); }
   td { padding:1px 3px; border:.5px solid var(--border); vertical-align:middle; }
   tr:nth-child(even) td { background:var(--row-alt); }
   tr:hover td { background:var(--row-hover); }
   td input { width:100%; border:none; background:transparent; font-size:11px; font-family:inherit; color:var(--text); padding:3px 2px; outline:none; }
   td input:focus { background:#fffde7; border-radius:2px; }
   .no-rows td { text-align:center; color:#aaa; font-style:italic; padding:8px; font-size:11px; }
-
-  #toast { position:fixed; bottom:20px; right:20px; background:#1a252f; color:#fff; padding:7px 14px; border-radius:6px; font-size:11px; opacity:0; pointer-events:none; transition:opacity .3s; z-index:999; max-width:320px; }
+  #toast { position:fixed; bottom:20px; right:20px; background:#1a252f; color:#fff; padding:7px 14px; border-radius:6px; font-size:11px; opacity:0; pointer-events:none; transition:opacity .3s; z-index:999; max-width:340px; }
   #toast.show { opacity:1; }
-
-  .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:200; align-items:center; justify-content:center; }
+  .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:200; align-items:center; justify-content:center; }
   .modal-bg.open { display:flex; }
-  .modal { background:#fff; border-radius:8px; padding:20px 24px; width:520px; max-width:95vw; box-shadow:0 8px 32px rgba(0,0,0,.2); }
-  .modal h2 { font-size:14px; margin-bottom:10px; color:var(--p1-header); }
-  .modal p  { font-size:11px; color:#555; margin-bottom:8px; line-height:1.6; }
-  .modal code { background:#f4f6f7; padding:1px 4px; border-radius:3px; font-size:10px; }
-  .modal input[type=text] { width:100%; font-family:monospace; font-size:11px; padding:6px 8px; border:1px solid var(--border); border-radius:4px; margin-bottom:12px; }
+  .modal { background:#fff; border-radius:8px; padding:24px; width:540px; max-width:95vw; box-shadow:0 8px 32px rgba(0,0,0,.25); }
+  .modal h2 { font-size:14px; margin-bottom:12px; color:var(--p1-header); }
+  .modal p { font-size:11px; color:#555; margin-bottom:8px; line-height:1.6; }
+  .modal code { background:#f0f4f8; padding:1px 5px; border-radius:3px; font-size:10px; word-break:break-all; }
+  .modal input[type=text] { width:100%; font-family:monospace; font-size:11px; padding:7px 8px; border:1px solid var(--border); border-radius:4px; margin-bottom:12px; }
   .modal-actions { display:flex; gap:8px; justify-content:flex-end; }
-
-  /* ── PRINT ── */
   @media print {
-    .toolbar, .no-print { display:none !important; }
+    .toolbar,.no-print { display:none !important; }
     body { background:#fff; }
     .page { padding:0; max-width:100%; }
-    .block-title, th, .section-label { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .block-title,th,.section-label { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
     tr:nth-child(even) td { -webkit-print-color-adjust:exact; print-color-adjust:exact; background:var(--row-alt) !important; }
-    td, th { font-size:8.5px !important; padding:3px 5px !important; }
+    td,th { font-size:8.5px !important; padding:3px 5px !important; }
     td input { display:none !important; }
     .cell-text { display:block !important; font-size:8.5px; word-break:break-word; white-space:normal; line-height:1.4; }
-    .section-wrap { border-radius:0 !important; }
-    .divider { height:8px; }
   }
   .cell-text { display:none; }
 </style>
@@ -107,16 +81,15 @@
       <span id="slabel">Iniciando...</span>
     </div>
     <button class="btn btn-outline" onclick="openConfig()">⚙ Configurar</button>
-    <button class="btn btn-print"   onclick="doPrint()">🖨 Imprimir</button>
+    <button class="btn btn-print" onclick="doPrint()">🖨 Imprimir</button>
   </div>
 </div>
 
 <div class="modal-bg" id="modal-bg">
   <div class="modal">
     <h2>⚙ Conectar con Google Sheets</h2>
-    <p>Pegá la URL de tu Google Apps Script desplegado como Web App.<br>
-    Debe terminar en <code>/exec</code>. Se guarda en tu navegador — solo lo hacés una vez.</p>
-    <p><strong>⚠ Importante:</strong> si ya tenías una URL configurada y actualizaste el código <code>.gs</code>, tenés que crear una <em>nueva implementación</em> en Apps Script y pegar la nueva URL acá.</p>
+    <p>Pegá la URL de tu Google Apps Script. Debe terminar en <code>/exec</code>.</p>
+    <p>⚠ <strong>Importante:</strong> en Apps Script asegurate que la implementación tenga acceso configurado como <strong>"Cualquier persona"</strong> (sin "con cuenta de Google").</p>
     <input type="text" id="url-input" placeholder="https://script.google.com/macros/s/XXXX/exec">
     <div class="modal-actions">
       <button class="btn btn-outline" onclick="closeConfig()">Cancelar</button>
@@ -126,7 +99,6 @@
 </div>
 
 <div class="page">
-
   <div class="block-title p1-color">INCIDENTES P1</div>
   <div class="section-wrap">
     <div class="section-label lbl-p1-pend">PENDIENTES</div>
@@ -188,75 +160,96 @@
     </table></div>
     <button class="add-btn no-print" onclick="addRow('b-p2-res')">+ Agregar fila</button>
   </div>
-
 </div>
+
 <div id="toast"></div>
 
 <script>
 // ── CONFIG ────────────────────────────────────────────────────
-let API_URL = localStorage.getItem("inc_api_url") || "";
+let API_URL = "";
 let saveTimer = null;
 let lastHash = "";
 let cbCount = 0;
 
-function openConfig()  { document.getElementById("url-input").value = API_URL; document.getElementById("modal-bg").classList.add("open"); }
-function closeConfig() { document.getElementById("modal-bg").classList.remove("open"); }
-function saveConfig()  {
+function openConfig() {
+  document.getElementById("url-input").value = API_URL;
+  document.getElementById("modal-bg").classList.add("open");
+}
+function closeConfig() {
+  document.getElementById("modal-bg").classList.remove("open");
+}
+function saveConfig() {
   const u = document.getElementById("url-input").value.trim();
-  if (!u) { toast("⚠ Ingresá una URL"); return; }
+  if (!u || !u.startsWith("http")) { toast("⚠ URL inválida"); return; }
   API_URL = u;
-  localStorage.setItem("inc_api_url", u);
+  localStorage.setItem("inc_api_url", API_URL);
   closeConfig();
   loadData();
 }
 
-// ── STATUS ────────────────────────────────────────────────────
 function setSt(state, label) {
-  document.getElementById("dot").className   = "dot " + state;
+  document.getElementById("dot").className = "dot " + state;
   document.getElementById("slabel").textContent = label;
 }
 
-// ── JSONP ─────────────────────────────────────────────────────
-// Usamos JSONP para evitar el bloqueo CORS de Apps Script
-function jsonp(params) {
+// ── JSONP (evita CORS) ────────────────────────────────────────
+function callAPI(params) {
   return new Promise((resolve, reject) => {
-    const cbName = "_cb" + (++cbCount);
-    const timeout = setTimeout(() => {
-      delete window[cbName];
-      reject(new Error("Timeout: no responde el servidor"));
-    }, 15000);
+    const cbName = "_cb" + (++cbCount) + "_" + Date.now();
+    const ms = 20000;
 
-    window[cbName] = (data) => {
-      clearTimeout(timeout);
-      delete window[cbName];
-      if (data.error) reject(new Error(data.error));
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error("Timeout — Apps Script no respondió en 20 segundos"));
+    }, ms);
+
+    window[cbName] = function(data) {
+      cleanup();
+      if (data && data.error) reject(new Error(data.error));
       else resolve(data);
     };
 
-    const qs = Object.entries({ ...params, callback: cbName })
-      .map(([k,v]) => k + "=" + encodeURIComponent(v)).join("&");
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[cbName];
+      const s = document.getElementById("sc_" + cbName);
+      if (s) s.remove();
+    }
+
+    // Construir URL con todos los params + callback
+    const allParams = Object.assign({}, params, { callback: cbName });
+    const qs = Object.entries(allParams)
+      .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+      .join("&");
+
+    const fullURL = API_URL + "?" + qs;
+    console.log("[API] Llamando:", fullURL.substring(0, 120) + "...");
 
     const script = document.createElement("script");
-    script.src = API_URL + "?" + qs;
-    script.onerror = () => { clearTimeout(timeout); delete window[cbName]; reject(new Error("No se pudo conectar. Verificá la URL del Apps Script.")); };
+    script.id = "sc_" + cbName;
+    script.src = fullURL;
+    script.onerror = function() {
+      cleanup();
+      reject(new Error("No se pudo cargar el script. Verificá la URL y que el acceso sea 'Cualquier persona'."));
+    };
     document.head.appendChild(script);
-    setTimeout(() => { if (script.parentNode) script.parentNode.removeChild(script); }, 16000);
   });
 }
 
 // ── ROWS ──────────────────────────────────────────────────────
-function esc(s) { return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;"); }
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+}
 
 function clearNoRows(id) {
-  const nr = document.querySelector("#"+id+" .no-rows");
+  const nr = document.querySelector("#" + id + " .no-rows");
   if (nr) nr.remove();
 }
 
 function makeCell(val, ph) {
-  return `<td>
-    <input type="text" value="${esc(val)}" placeholder="${ph}">
-    <span class="cell-text">${esc(val)}</span>
-  </td>`;
+  const v = esc(val);
+  return `<td><input type="text" value="${v}" placeholder="${ph}"><span class="cell-text">${v}</span></td>`;
 }
 
 function addRow(tbodyId, vals, skipSave) {
@@ -266,25 +259,20 @@ function addRow(tbodyId, vals, skipSave) {
   const tr = document.createElement("tr");
   tr.dataset.section = tbodyId;
   tr.innerHTML =
-    makeCell(v[0],"ID") +
-    makeCell(v[1],"dd/mm/aaaa hh:mm") +
-    makeCell(v[2],"Asunto") +
-    makeCell(v[3],"Técnico") +
-    makeCell(v[4],"Grupo") +
-    makeCell(v[5], isRes?"Resolución":"Observaciones") +
-    makeCell(v[6], isRes?"Fecha resolución":"Últ. actualización") +
-    makeCell(v[7],"Subcategoría") +
-    `<td class="no-print" style="text-align:center">
-       <button class="del-btn" onclick="delRow(this)">×</button>
-     </td>`;
+    makeCell(v[0], "ID") +
+    makeCell(v[1], "dd/mm/aaaa hh:mm") +
+    makeCell(v[2], "Asunto") +
+    makeCell(v[3], "Técnico") +
+    makeCell(v[4], "Grupo") +
+    makeCell(v[5], isRes ? "Resolución" : "Observaciones") +
+    makeCell(v[6], isRes ? "Fecha resolución" : "Últ. actualización") +
+    makeCell(v[7], "Subcategoría") +
+    `<td class="no-print" style="text-align:center"><button class="del-btn" onclick="delRow(this)">×</button></td>`;
 
   document.getElementById(tbodyId).appendChild(tr);
 
-  // Sincronizar cell-text con input y disparar autoguardado
-  tr.querySelectorAll("td").forEach(td => {
-    const inp  = td.querySelector("input");
-    const span = td.querySelector(".cell-text");
-    if (!inp) return;
+  tr.querySelectorAll("td input").forEach(inp => {
+    const span = inp.nextElementSibling;
     inp.addEventListener("input", () => {
       if (span) span.textContent = inp.value;
       scheduleAutosave();
@@ -304,22 +292,21 @@ function delRow(btn) {
   scheduleAutosave();
 }
 
-// ── COLLECT ───────────────────────────────────────────────────
 function collectRows() {
   const rows = [];
   ["b-p1-pend","b-p1-res","b-p2-pend","b-p2-res"].forEach(sec => {
-    document.querySelectorAll(`#${sec} tr:not(.no-rows)`).forEach(tr => {
+    document.querySelectorAll("#" + sec + " tr:not(.no-rows)").forEach(tr => {
       const inp = tr.querySelectorAll("input");
       rows.push({
-        seccion: sec,
-        id:           inp[0]?.value||"",
-        creacion:     inp[1]?.value||"",
-        asunto:       inp[2]?.value||"",
-        tecnico:      inp[3]?.value||"",
-        grupo:        inp[4]?.value||"",
-        col6:         inp[5]?.value||"",
-        col7:         inp[6]?.value||"",
-        subcategoria: inp[7]?.value||""
+        seccion:      sec,
+        id:           inp[0] ? inp[0].value : "",
+        creacion:     inp[1] ? inp[1].value : "",
+        asunto:       inp[2] ? inp[2].value : "",
+        tecnico:      inp[3] ? inp[3].value : "",
+        grupo:        inp[4] ? inp[4].value : "",
+        col6:         inp[5] ? inp[5].value : "",
+        col7:         inp[6] ? inp[6].value : "",
+        subcategoria: inp[7] ? inp[7].value : ""
       });
     });
   });
@@ -330,7 +317,7 @@ function collectRows() {
 function scheduleAutosave() {
   if (!API_URL) return;
   clearTimeout(saveTimer);
-  setSt("saving","Guardando...");
+  setSt("saving", "Guardando...");
   saveTimer = setTimeout(doSave, 1500);
 }
 
@@ -338,15 +325,16 @@ async function doSave() {
   if (!API_URL) return;
   const rows = collectRows();
   const hash = JSON.stringify(rows);
-  if (hash === lastHash) { setSt("idle","Todo guardado ✓"); return; }
+  if (hash === lastHash) { setSt("idle", "Todo guardado ✓"); return; }
   try {
-    const data = encodeURIComponent(JSON.stringify({ rows }));
-    const res  = await jsonp({ action:"save", data });
+    const dataStr = JSON.stringify({ rows });
+    await callAPI({ action: "save", data: dataStr });
     lastHash = hash;
-    setSt("idle","Todo guardado ✓");
+    setSt("idle", "Todo guardado ✓");
   } catch(e) {
-    setSt("error","Error al guardar");
+    setSt("error", "Error al guardar");
     toast("❌ " + e.message);
+    console.error("[save]", e);
   }
 }
 
@@ -362,8 +350,9 @@ function renderData(rows) {
     return;
   }
   rows.forEach(r => {
-    if (document.getElementById(r.seccion))
-      addRow(r.seccion,[r.id,r.creacion,r.asunto,r.tecnico,r.grupo,r.col6,r.col7,r.subcategoria],true);
+    if (document.getElementById(r.seccion)) {
+      addRow(r.seccion, [r.id,r.creacion,r.asunto,r.tecnico,r.grupo,r.col6,r.col7,r.subcategoria], true);
+    }
   });
   lastHash = JSON.stringify(collectRows());
 }
@@ -371,42 +360,48 @@ function renderData(rows) {
 // ── LOAD ──────────────────────────────────────────────────────
 async function loadData() {
   if (!API_URL) { openConfig(); return; }
-  setSt("saving","Conectando...");
+  setSt("saving", "Conectando...");
   try {
-    const res = await jsonp({ action:"getAll" });
+    const res = await callAPI({ action: "getAll" });
     renderData(res.rows);
-    setSt("idle","Todo guardado ✓");
+    setSt("idle", "Todo guardado ✓");
+    toast("✅ Conectado — datos cargados");
   } catch(e) {
-    setSt("error","Error al conectar");
+    setSt("error", "Error al conectar");
     toast("❌ " + e.message);
+    console.error("[load]", e);
     ["b-p1-pend","b-p1-res","b-p2-pend","b-p2-res"].forEach(id => {
-      document.getElementById(id).innerHTML = `<tr class="no-rows"><td colspan="9">Error al cargar</td></tr>`;
+      document.getElementById(id).innerHTML =
+        `<tr class="no-rows"><td colspan="9">Error al cargar — revisá la URL</td></tr>`;
     });
   }
 }
 
 // ── PRINT ─────────────────────────────────────────────────────
-function doPrint() {
-  window.print();
-}
+function doPrint() { window.print(); }
 
 // ── TOAST ─────────────────────────────────────────────────────
 function toast(msg) {
   const t = document.getElementById("toast");
   t.textContent = msg; t.classList.add("show");
-  setTimeout(()=>t.classList.remove("show"), 4000);
+  setTimeout(() => t.classList.remove("show"), 4000);
 }
 
 // ── INIT ──────────────────────────────────────────────────────
-if (API_URL) {
-  loadData();
-} else {
-  setSt("error","Sin URL configurada");
-  ["b-p1-pend","b-p1-res","b-p2-pend","b-p2-res"].forEach(id => {
-    document.getElementById(id).innerHTML = `<tr class="no-rows"><td colspan="9">Configurá la URL para comenzar →</td></tr>`;
-  });
-  openConfig();
-}
+(function init() {
+  const saved = localStorage.getItem("inc_api_url");
+  if (saved && saved.startsWith("http")) {
+    API_URL = saved;
+    loadData();
+  } else {
+    setSt("error", "Sin URL configurada");
+    ["b-p1-pend","b-p1-res","b-p2-pend","b-p2-res"].forEach(id => {
+      document.getElementById(id).innerHTML =
+        `<tr class="no-rows"><td colspan="9">Configurá la URL para comenzar →</td></tr>`;
+    });
+    openConfig();
+  }
+})();
 </script>
 </body>
 </html>
